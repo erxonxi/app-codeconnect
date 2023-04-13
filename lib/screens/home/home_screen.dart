@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/home_tab_view.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -9,13 +11,16 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   int _counter = 0;
+  int _currentIndex = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -24,25 +29,57 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      body: HomeTabView(tabController: _tabController, counter: _counter),
+      bottomNavigationBar: buildBottomNavigationBar(),
+      floatingActionButton: buildFloatingActionButton(),
     );
   }
+
+  FloatingActionButton buildFloatingActionButton() {
+    return FloatingActionButton(
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    );
+  }
+
+  BottomNavigationBar buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      currentIndex: _currentIndex,
+      type: BottomNavigationBarType.fixed,
+      onTap: _onTabTapped,
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_rounded),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.school_rounded),
+          label: 'Learning Paths',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.people_rounded),
+          label: 'Communities',
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_events_rounded),
+            label: 'Challenges'
+        )
+      ],
+    );
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _onTabTapped(int value) {
+    setState(() {
+      _currentIndex = value;
+      _tabController.index = value;
+    });
+  }
 }
+
