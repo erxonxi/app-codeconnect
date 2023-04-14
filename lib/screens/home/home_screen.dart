@@ -30,13 +30,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
     bool isMobile = mediaQuery.size.width < 600;
 
-    String title = _tabController.index == 0
-        ? 'Home'
-        : _tabController.index == 1
-            ? 'Learning Paths'
-            : _tabController.index == 2
-                ? 'Communities'
-                : 'Challenges';
+    List<String> titles = [
+      'Home',
+      'Learning Paths',
+      'Communities',
+      'Challenges',
+    ];
+
+    String title = titles[_tabController.index];
 
     return Scaffold(
       appBar: AppBar(
@@ -115,6 +116,21 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget buildBottomNavigationBar() {
     final theme = Theme.of(context);
 
+    final icons = [
+      Icons.home_rounded,
+      Icons.school_rounded,
+      Icons.people_rounded,
+      Icons.emoji_events_rounded,
+    ];
+
+    Icon getIcon(int index) {
+      return Icon(
+        icons[index],
+        color: theme.primaryIconTheme.color,
+        size: 32,
+      );
+    }
+
     return CurvedNavigationBar(
       backgroundColor: Colors.white,
       color: theme.primaryColor,
@@ -122,13 +138,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       onTap: _onTabTapped,
       height: 60,
       items: [
-        Icon(Icons.home_rounded, color: theme.primaryIconTheme.color, size: 32),
-        Icon(Icons.school_rounded,
-            color: theme.primaryIconTheme.color, size: 32),
-        Icon(Icons.people_rounded,
-            color: theme.primaryIconTheme.color, size: 32),
-        Icon(Icons.emoji_events_rounded,
-            color: theme.primaryIconTheme.color, size: 32),
+        getIcon(0),
+        getIcon(1),
+        getIcon(2),
+        getIcon(3),
       ],
     );
   }
