@@ -25,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final mediaQuery = MediaQuery.of(context);
 
     bool isMobile = mediaQuery.size.width < 600;
@@ -44,72 +43,86 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         title: Text('${widget.title} | $title'),
       ),
       body: HomeTabView(tabController: _tabController, counter: _counter),
-      drawer: isMobile
-          ? null
-          : Drawer(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: <Widget>[
-                  DrawerHeader(
-                    decoration: BoxDecoration(
-                      color: theme.primaryColor,
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'CodeConnect',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ),
-                  ),
-                  // same as bottom navigation bar
-                  ListTile(
-                    leading: const Icon(Icons.home_rounded),
-                    title: const Text('Home'),
-                    onTap: () {
-                      _onTabTapped(0);
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.school_rounded),
-                    title: const Text('Learning Paths'),
-                    onTap: () {
-                      _onTabTapped(1);
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.people_rounded),
-                    title: const Text('Communities'),
-                    onTap: () {
-                      _onTabTapped(2);
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.emoji_events_rounded),
-                    title: const Text('Challenges'),
-                    onTap: () {
-                      _onTabTapped(3);
-                      Navigator.pop(context);
-                    },
-                  ),
-                ],
-              ),
-            ),
+      drawer: isMobile ? null : buildDrawer(),
       bottomNavigationBar: isMobile ? buildBottomNavigationBar() : null,
       floatingActionButton: buildFloatingActionButton(),
     );
   }
 
-  FloatingActionButton buildFloatingActionButton() {
-    return FloatingActionButton(
-      onPressed: _incrementCounter,
-      tooltip: 'Increment',
-      child: const Icon(Icons.add),
+  Drawer buildDrawer() {
+    final theme = Theme.of(context);
+
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: theme.primaryColor,
+            ),
+            child: const Center(
+              child: Text(
+                'CodeConnect',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+          ),
+          // same as bottom navigation bar
+          ListTile(
+            leading: const Icon(Icons.home_rounded),
+            title: const Text('Home'),
+            onTap: () {
+              _onTabTapped(0);
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.school_rounded),
+            title: const Text('Learning Paths'),
+            onTap: () {
+              _onTabTapped(1);
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.people_rounded),
+            title: const Text('Communities'),
+            onTap: () {
+              _onTabTapped(2);
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.emoji_events_rounded),
+            title: const Text('Challenges'),
+            onTap: () {
+              _onTabTapped(3);
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildFloatingActionButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 14.0),
+      child: FilledButton(
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all(
+            const EdgeInsets.all(12.0),
+          ),
+          shape: MaterialStateProperty.all(
+            const CircleBorder(),
+          ),
+        ),
+        onPressed: _incrementCounter,
+        child: const Icon(Icons.add),
+      ),
     );
   }
 
