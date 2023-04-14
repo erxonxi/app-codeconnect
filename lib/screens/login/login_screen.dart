@@ -77,7 +77,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ])),
 
-                    // not a member? sign up button
+                    const SizedBox(height: 20),
+
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(title: "CodeConnect",),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Not a member? Sign up',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
                   ],
                 ),
               ),
