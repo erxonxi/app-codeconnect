@@ -52,7 +52,8 @@ class HomeView extends StatelessWidget {
         email: "test@mail.com",
         avatar: "https://i.pravatar.cc/150?img=1",
       ),
-      title: "Hey! This is the first post! I'm so excited to share this new script for you!",
+      title:
+          "Hey! This is the first post! I'm so excited to share this new script for you!",
       body: "# Post 1",
       tags: ["#test", "#test2"],
       articleId: null,
@@ -65,7 +66,50 @@ class HomeView extends StatelessWidget {
         email: "test@mail.com",
         avatar: "https://i.pravatar.cc/150?img=1",
       ),
-      title: "Hey! This is the second post! I'm so excited to share this new script for you!",
+      title:
+          "Hey! This is the second post! I'm so excited to share this new script for you!",
+      body: "# Post 2",
+      tags: ["#test", "#test2"],
+      articleId: null,
+    ),
+    Post(
+      id: "3",
+      user: PostUser(
+        id: "1",
+        nickname: "test",
+        email: "test@mail.com",
+        avatar: "https://i.pravatar.cc/150?img=1",
+      ),
+      title:
+          "Hey! This is the second post! I'm so excited to share this new script for you!",
+      body: "# Post 2",
+      tags: ["#test", "#test2"],
+      articleId: null,
+    ),
+    Post(
+      id: "4",
+      user: PostUser(
+        id: "1",
+        nickname: "test",
+        email: "test@mail.com",
+        avatar: "https://i.pravatar.cc/150?img=1",
+      ),
+      title:
+          "Hey! This is the second post! I'm so excited to share this new script for you!",
+      body: "# Post 2",
+      tags: ["#test", "#test2"],
+      articleId: null,
+    ),
+    Post(
+      id: "5",
+      user: PostUser(
+        id: "1",
+        nickname: "test",
+        email: "test@mail.com",
+        avatar: "https://i.pravatar.cc/150?img=1",
+      ),
+      title:
+          "Hey! This is the second post! I'm so excited to share this new script for you!",
       body: "# Post 2",
       tags: ["#test", "#test2"],
       articleId: null,
@@ -74,25 +118,30 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.only(top: 80),
+          child: ListView.builder(
+            itemCount: _posts.length,
+            itemBuilder: (context, index) {
+              final post = _posts[index];
+              return PostCard(
+                  isActive: index == 0, post: post, press: () => {});
+            },
+          ),
+        ),
 
-        const SearchInput(),
-
-        const SizedBox(height: 20),
-
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: _posts.length,
-          itemBuilder: (context, index) {
-            final post = _posts[index];
-            return PostCard(isActive: false, post: post, press: () => {});
-          },
-        )
+        const Positioned(
+          top: 20,
+          left: 0,
+          right: 0,
+          child: SearchInput(),
+        ),
       ],
     );
   }
+
 }
 
 class SearchInput extends StatelessWidget {

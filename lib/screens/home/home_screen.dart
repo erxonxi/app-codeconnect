@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     }
 
     return CurvedNavigationBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       color: theme.primaryColor,
       animationDuration: const Duration(milliseconds: 200),
       onTap: _onTabTapped,
