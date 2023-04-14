@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../create_post/create_post_screen.dart';
 import 'widgets/curved_navigation_bar/curved_navigation_bar.dart';
 import 'widgets/home_tab_view.dart';
 
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             const CircleBorder(),
           ),
         ),
-        onPressed: _incrementCounter,
+        onPressed: _visitCreatePostScreen,
         child: const Icon(Icons.add),
       ),
     );
@@ -159,10 +160,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void _visitCreatePostScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const CreatePostScreen(),
+      ),
+    );
   }
 
   void _onTabTapped(int value) {
