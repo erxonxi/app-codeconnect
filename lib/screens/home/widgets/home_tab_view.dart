@@ -48,13 +48,12 @@ class HomeView extends StatelessWidget {
       id: "1",
       user: PostUser(
         id: "1",
-        nickname: "test",
+        nickname: "@patopitu",
         email: "test@mail.com",
-        avatar: "https://i.pravatar.cc/150?img=1",
+        avatar: "https://i.pravatar.cc/150?img=4",
       ),
-      title:
+      content:
           "Hey! This is the first post! I'm so excited to share this new script for you!",
-      body: "# Post 1",
       tags: ["#test", "#test2"],
       articleId: null,
     ),
@@ -62,13 +61,12 @@ class HomeView extends StatelessWidget {
       id: "2",
       user: PostUser(
         id: "1",
-        nickname: "test",
+        nickname: "@patopitu",
         email: "test@mail.com",
-        avatar: "https://i.pravatar.cc/150?img=1",
+        avatar: "https://i.pravatar.cc/150?img=5",
       ),
-      title:
+      content:
           "Hey! This is the second post! I'm so excited to share this new script for you!",
-      body: "# Post 2",
       tags: ["#test", "#test2"],
       articleId: null,
     ),
@@ -76,13 +74,12 @@ class HomeView extends StatelessWidget {
       id: "3",
       user: PostUser(
         id: "1",
-        nickname: "test",
+        nickname: "@patopitu",
         email: "test@mail.com",
-        avatar: "https://i.pravatar.cc/150?img=1",
+        avatar: "https://i.pravatar.cc/150?img=6",
       ),
-      title:
+      content:
           "Hey! This is the second post! I'm so excited to share this new script for you!",
-      body: "# Post 2",
       tags: ["#test", "#test2"],
       articleId: null,
     ),
@@ -90,27 +87,25 @@ class HomeView extends StatelessWidget {
       id: "4",
       user: PostUser(
         id: "1",
-        nickname: "test",
+        nickname: "@patopitu",
         email: "test@mail.com",
-        avatar: "https://i.pravatar.cc/150?img=1",
+        avatar: "https://i.pravatar.cc/150?img=2",
       ),
-      title:
+      content:
           "Hey! This is the second post! I'm so excited to share this new script for you!",
-      body: "# Post 2",
       tags: ["#test", "#test2"],
       articleId: null,
     ),
     Post(
       id: "5",
       user: PostUser(
-        id: "1",
-        nickname: "test",
-        email: "test@mail.com",
-        avatar: "https://i.pravatar.cc/150?img=1",
+        id: "2",
+        nickname: "@pimpinela",
+        email: "test2@mail.com",
+        avatar: "https://i.pravatar.cc/150?img=3",
       ),
-      title:
+      content:
           "Hey! This is the second post! I'm so excited to share this new script for you!",
-      body: "# Post 2",
       tags: ["#test", "#test2"],
       articleId: null,
     ),

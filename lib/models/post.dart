@@ -34,15 +34,13 @@ class Post {
   final String id;
   final PostUser user;
   final String? articleId;
-  final String title;
-  final String body;
+  final String content;
   final List<String> tags;
 
   Post({
     required this.id,
     required this.user,
-    required this.title,
-    required this.body,
+    required this.content,
     required this.articleId,
     required this.tags,
   });
@@ -51,8 +49,7 @@ class Post {
     return Post(
       id: json['id'],
       user: json['userId'],
-      title: json['title'],
-      body: json['body'],
+      content: json['title'],
       articleId: json['articleId'],
       tags: json['tags'].cast<String>(),
     );
@@ -63,8 +60,7 @@ class Post {
       'id': id,
       'userId': user,
       'articleId': articleId,
-      'title': title,
-      'body': body,
+      'title': content,
       'tags': tags,
     };
   }

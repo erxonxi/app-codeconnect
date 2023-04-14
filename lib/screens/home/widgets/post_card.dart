@@ -61,33 +61,53 @@ class PostCard extends StatelessWidget {
                       children: [
                         const SizedBox(width: kDefaultPadding / 2),
                         Expanded(
-                          child: Text.rich(
-                            TextSpan(
-                              text: "${post.title} \n",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: isActive ? Colors.white : kTextColor,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 16,
+                                    backgroundImage: NetworkImage(
+                                      post.user.avatar ??
+                                          "https://eu.ui-avatars.com/api/?name=John+Doe&size=250",
+                                    ),
+                                  ),
+
+                                  const SizedBox(width: kDefaultPadding / 2),
+
+                                  Text(
+                                    "${post.user.nickname}",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: isActive ? Colors.white : kTextColor,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              children: [
-                                TextSpan(
-                                  text: post.user.email,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                        color: isActive
-                                            ? Colors.white
-                                            : kTextColor,
-                                      ),
-                                ),
-                              ],
-                            ),
+
+
+                              const SizedBox(height: kDefaultPadding / 2),
+
+                              Text(
+                                post.content,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      color:
+                                          isActive ? Colors.white : kTextColor,
+                                    ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
+
                     const SizedBox(height: kDefaultPadding / 2),
+
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Wrap(
@@ -97,8 +117,9 @@ class PostCard extends StatelessWidget {
                             .map(
                               (tag) => Chip(
                                 label: Text(tag),
-                                backgroundColor:
-                                    isActive ? Colors.white : theme.primaryColor,
+                                backgroundColor: isActive
+                                    ? Colors.white
+                                    : theme.primaryColor,
                                 labelStyle: TextStyle(
                                   color: isActive ? kTextColor : Colors.white,
                                 ),
