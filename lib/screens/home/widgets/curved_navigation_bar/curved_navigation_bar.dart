@@ -147,14 +147,14 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
                 height: 100.0,
                 child: Row(
                     children: widget.items.map((item) {
-                      return NavButton(
-                        onTap: _buttonTap,
-                        position: _pos,
-                        length: _length,
-                        index: widget.items.indexOf(item),
-                        child: Center(child: item),
-                      );
-                    }).toList())),
+                  return NavButton(
+                    onTap: _buttonTap,
+                    position: _pos,
+                    length: _length,
+                    index: widget.items.indexOf(item),
+                    child: Center(child: item),
+                  );
+                }).toList())),
           ),
         ],
       ),

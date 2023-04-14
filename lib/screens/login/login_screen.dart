@@ -29,7 +29,9 @@ class _LoginScreenState extends State<LoginScreen> {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => const HomeScreen(title: "CodeConnect",),
+                builder: (context) => const HomeScreen(
+                  title: "CodeConnect",
+                ),
               ),
             );
           });
@@ -46,17 +48,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     const SizedBox(height: 100),
-
                     Text(
                       'CodeConnect',
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
-
                     const SizedBox(height: 20),
-
                     Text("Welcome back, you've been missed!",
                         style: Theme.of(context).textTheme.titleMedium),
-
                     Padding(
                         padding: const EdgeInsets.all(20),
                         child: Column(children: [
@@ -76,14 +74,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             onTap: _submitLogin,
                           ),
                         ])),
-
                     const SizedBox(height: 20),
-
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => const HomeScreen(title: "CodeConnect",),
+                            builder: (context) => const HomeScreen(
+                              title: "CodeConnect",
+                            ),
                           ),
                         );
                       },

@@ -11,8 +11,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final UserService _userServiceApi;
 
   UserBloc(
-      this._userServiceApi,
-      ) : super(const UserInitial()) {
+    this._userServiceApi,
+  ) : super(const UserInitial()) {
     on<UserEvent>((event, emit) async {
       if (event is UserLogin) {
         try {
