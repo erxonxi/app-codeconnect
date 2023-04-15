@@ -29,6 +29,6 @@ jobs:
       - run: flutter build apk
 
       - name: Release upload
-          uses: softprops/action-gh-release@v1
-          with:
-            files: build/app/outputs/apk/release/app-release.apk
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/app/outputs/apk/release/app-release.apk
