@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - develop
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,6 +29,7 @@ jobs:
       - run: flutter build apk
 
       - uses: actions/upload-artifact@v1
+        if: github.ref == 'refs/heads/master'
         with:
           name: release-apk
           path: build/app/outputs/apk/release/app-release.apk
