@@ -95,11 +95,13 @@ class _HomeViewState extends State<HomeView> {
             itemBuilder: (context, index) {
               final post = _posts[index];
               return PostCard(
-                  isActive: index == _noteSelected, post: post, press: () => {
-                    setState(() {
-                      _noteSelected = index;
-                    })
-              });
+                  isActive: index == _noteSelected,
+                  post: post,
+                  press: () => {
+                        setState(() {
+                          _noteSelected = index;
+                        })
+                      });
             },
           ),
         ),

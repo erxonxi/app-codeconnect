@@ -35,7 +35,6 @@ class SkillNodeItem extends StatelessWidget {
           ],
         ),
         children: [
-
           Text(
             skillNode.description,
             style: const TextStyle(

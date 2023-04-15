@@ -64,13 +64,15 @@ class LearningPathCard extends StatelessWidget {
           Text(
             path.description,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: isActive ? Colors.white : kTextColor,
-            ),
+                  color: isActive ? Colors.white : kTextColor,
+                ),
           ),
           const SizedBox(height: kDefaultPadding / 2),
           LinearProgressIndicator(
             value: progress / 100,
-            backgroundColor: isActive ? Colors.white.withOpacity(0.3) : theme.primaryColor.withOpacity(0.3),
+            backgroundColor: isActive
+                ? Colors.white.withOpacity(0.3)
+                : theme.primaryColor.withOpacity(0.3),
             valueColor: AlwaysStoppedAnimation<Color>(
               isActive ? Colors.white : theme.primaryColor,
             ),
