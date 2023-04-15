@@ -5,7 +5,7 @@ import '../../../models/post.dart';
 import '../widgets/search_input.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({
+  const HomeView({
     super.key,
   });
 

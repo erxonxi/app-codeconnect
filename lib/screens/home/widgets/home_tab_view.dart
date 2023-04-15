@@ -17,11 +17,11 @@ class HomeTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       controller: _tabController,
-      children: [
+      children: const [
         HomeView(),
-        const LearningPathsView(),
-        const CommunityView(),
-        const ChallengesView()
+        LearningPathsView(),
+        CommunityView(),
+        ChallengesView()
       ],
     );
   }
