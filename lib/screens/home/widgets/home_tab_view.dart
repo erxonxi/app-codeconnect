@@ -9,7 +9,6 @@ class HomeTabView extends StatelessWidget {
   const HomeTabView({
     super.key,
     required TabController tabController,
-    required int counter,
   }) : _tabController = tabController;
 
   final TabController _tabController;

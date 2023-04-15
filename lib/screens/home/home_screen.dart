@@ -14,8 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  int _counter = 0;
-
   late TabController _tabController;
 
   @override
@@ -43,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       appBar: AppBar(
         title: Text('${widget.title} | $title'),
       ),
-      body: HomeTabView(tabController: _tabController, counter: _counter),
+      body: HomeTabView(tabController: _tabController),
       drawer: isMobile ? null : buildDrawer(),
       bottomNavigationBar: isMobile ? buildBottomNavigationBar() : null,
       floatingActionButton: buildFloatingActionButton(),
