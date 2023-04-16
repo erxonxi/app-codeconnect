@@ -29,7 +29,8 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
           floatingActionButton: content.isNotEmpty
               ? FloatingActionButton(
                   onPressed: _onFloatingButtonPressed,
-                  child: const Icon(Icons.create_rounded),
+                  tooltip: "Publish",
+                  child: const Icon(Icons.publish_rounded),
                 )
               : null,
           body: Column(
