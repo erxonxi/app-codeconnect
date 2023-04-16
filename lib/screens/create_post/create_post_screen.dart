@@ -37,6 +37,142 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '#';
+                            });
+                          },
+                          icon: Text(
+                            "H1",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '##';
+                            });
+                          },
+                          icon: Text(
+                            "H2",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '###';
+                            });
+                          },
+                          icon: Text(
+                            "H3",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '####';
+                            });
+                          },
+                          icon: Text(
+                            "H4",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '#####';
+                            });
+                          },
+                          icon: Text(
+                            "H5",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '######';
+                            });
+                          },
+                          icon: Text(
+                            "H6",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '---';
+                            });
+                          },
+                          icon: Text(
+                            "HR",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '```';
+                            });
+                          },
+                          icon: Text(
+                            "CODE",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '[]()';
+                            });
+                          },
+                          icon: Text(
+                            "LINK",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '![alt text]()';
+                            });
+                          },
+                          icon: Text(
+                            "IMG",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _contentController.text += '> ';
+                            });
+                          },
+                          icon: Text(
+                            "QUOTE",
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
                   onChanged: (String value) {
